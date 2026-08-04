@@ -2017,34 +2017,6 @@ html[lang="pl"] .hero-content {
     font-size: 1.12rem !important;
   }
 }
-/* Mobile viewport footer alignment */
-
-@media (max-width: 640px) {
-  html {
-    min-height: 100% !important;
-  }
-
-  body {
-    min-height: 100svh !important;
-    min-height: 100dvh !important;
-  }
-
-  .hero {
-    display: flex !important;
-    min-height: 100svh !important;
-    min-height: 100dvh !important;
-    flex-direction: column !important;
-  }
-
-  .hero-content {
-    flex: 0 0 auto !important;
-  }
-
-  .site-footer {
-    flex-shrink: 0 !important;
-    margin-top: auto !important;
-  }
-}
 
 /* Brand name accent */
 

@@ -25,7 +25,7 @@ const translations = {
   pl: {
     documentTitle: "WhoRides? - Znajdź ekipę na wspólną trasę",
     metaDescription:
-      "Znajdź motocyklistów w pobliżu, dołącz do spontanicznego wypadu albo zorganizuj własny.",
+      "Poznaj motocyklistów w pobliżu, dołącz do spontanicznego wypadu albo zorganizuj własny.",
     heroAlt: "Motocyklistka gotowa na kolejną trasę",
     languageLabel: "Wybierz język",
     comingSoon: "Już wkrótce",
@@ -33,7 +33,7 @@ const translations = {
     headlineFirst: "Droga wzywa.",
     headlineSecond: "Znajdź swoją ekipę.",
     description:
-      "Znajdź motocyklistów w pobliżu, dołącz do spontanicznego wypadu albo zorganizuj własny.",
+      "Poznaj motocyklistów w pobliżu, dołącz do spontanicznego wypadu albo zorganizuj własny.",
     joinCommunity: "Dołącz do społeczności",
     contact: "Kontakt",
     storeSectionLabel: "Sklepy z aplikacjami mobilnymi",
