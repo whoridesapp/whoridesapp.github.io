@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>WhoRides? - Find your next ride</title>
+
+    <meta
+      id="page-description"
+      name="description"
+      content="Discover riders nearby, join spontaneous rides, or start your own."
+    />
+
+    <meta name="theme-color" content="#091018" />
+
+    <link rel="icon" href="./favicon.png" type="image/png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="site-shell">
+      <img
+        class="hero-photo"
+        src="./assets/whorides-hero.png"
+        alt="A motorcyclist ready for the next ride"
+        data-i18n-alt="heroAlt"
+        fetchpriority="high"
+      />
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="WhoRides? home">
+          <span class="brand-icon">
+            <img
+              src="./assets/whorides-symbol.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </span>
+
+          <span class="brand-name">WhoRides?</span>
+        </a>
+
+        <div class="header-actions">
+          <div class="language-menu">
+            <button
+              id="language-trigger"
+              class="language-trigger"
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="language-dropdown"
+              aria-label="Choose language"
+            >
+              <span id="current-language-code">EN</span>
+
+              <svg
+                class="language-chevron"
+                viewBox="0 0 12 8"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1 1.5 6 6.5l5-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="language-dropdown"
+              class="language-dropdown"
+              role="menu"
+              hidden
+            >
+              <button
+                class="language-choice"
+                type="button"
+                role="menuitem"
+                data-language="en"
+              >
+                <span>English</span>
+                <span class="language-choice-code">EN</span>
+              </button>
+
+              <button
+                class="language-choice"
+                type="button"
+                role="menuitem"
+                data-language="pl"
+              >
+                <span>Polski</span>
+                <span class="language-choice-code">PL</span>
+              </button>
+            </div>
+          </div>
+
+          <a class="header-contact" href="mailto:hello@whorides.app">
+            hello@whorides.app
+          </a>
+
+          <span class="header-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="comingSoon">Coming soon</span>
+          </span>
+        </div>
+      </header>
+
+      <main class="hero-content">
+        <p class="eyebrow" data-i18n="eyebrow">
+          MOTORCYCLE COMMUNITY
+        </p>
+
+        <h1>
+          <span data-i18n="headlineFirst">The road is calling.</span>
+          <span
+            class="headline-accent"
+            data-i18n="headlineSecond"
+          >
+            Find your crew.
+          </span>
+        </h1>
+
+        <p class="description" data-i18n="description">
+          Discover riders nearby, join spontaneous rides, or start your own.
+        </p>
+
+        <div class="hero-actions">
+          <button
+            class="button button-primary"
+            type="button"
+            disabled
+            aria-disabled="true"
+            data-i18n="joinCommunity"
+          >
+            Join the community
+          </button>
+
+          <a
+            class="button button-secondary"
+            href="mailto:hello@whorides.app"
+            data-i18n="contact"
+          >
+            Contact us
+          </a>
+        </div>
+
+        <div
+          class="store-badges"
+          aria-label="Mobile application stores"
+          data-i18n-aria-label="storeSectionLabel"
+        >
+          <span
+            class="official-store-link"
+            aria-disabled="true"
+            title="Coming soon"
+            data-i18n-title="comingSoon"
+          >
+            <img
+              id="app-store-badge"
+              class="official-store-badge official-store-badge-apple"
+              src="./assets/app-store-badge.svg"
+              alt="Download on the App Store"
+              data-i18n-alt="appStoreAlt"
+            />
+          </span>
+
+          <span
+            class="official-store-link"
+            aria-disabled="true"
+            title="Coming soon"
+            data-i18n-title="comingSoon"
+          >
+            <img
+              id="google-play-badge"
+              class="official-store-badge official-store-badge-google"
+              src="./assets/google-play-badge.png"
+              alt="Get it on Google Play"
+              data-i18n-alt="googlePlayAlt"
+            />
+          </span>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <span>&copy; 2026 WhoRides?</span>
+      </footer>
+    </div>
+  </body>
+</html>

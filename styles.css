@@ -1,0 +1,1587 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #ffffff;
+  background: #091018;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --background: #091018;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.76);
+  --accent: #f97316;
+  --accent-hover: #ff8730;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+.site-shell {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  overflow: hidden;
+  flex-direction: column;
+  background: var(--background);
+  isolation: isolate;
+}
+
+.hero-photo {
+  position: absolute;
+  z-index: -3;
+  top: 0;
+  right: 0;
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 100%;
+  filter:
+    brightness(1.12)
+    contrast(1.02)
+    saturate(1.04);
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 7%,
+    rgba(0, 0, 0, 0.34) 16%,
+    rgba(0, 0, 0, 0.72) 25%,
+    #000000 36%,
+    #000000 100%
+  );
+
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 7%,
+    rgba(0, 0, 0, 0.34) 16%,
+    rgba(0, 0, 0, 0.72) 25%,
+    #000000 36%,
+    #000000 100%
+  );
+}
+
+.hero-overlay {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 72% 4%,
+      rgba(255, 198, 126, 0.18) 0%,
+      rgba(249, 115, 22, 0.06) 20%,
+      transparent 38%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(9, 16, 24, 0.99) 0%,
+      rgba(9, 16, 24, 0.98) 23%,
+      rgba(9, 16, 24, 0.91) 35%,
+      rgba(9, 16, 24, 0.72) 46%,
+      rgba(9, 16, 24, 0.44) 57%,
+      rgba(9, 16, 24, 0.18) 69%,
+      rgba(9, 16, 24, 0.04) 80%,
+      transparent 90%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(9, 16, 24, 0.04) 0%,
+      transparent 62%,
+      rgba(9, 16, 24, 0.18) 100%
+    );
+  pointer-events: none;
+}
+
+.site-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding:
+    clamp(24px, 3vw, 42px)
+    clamp(28px, 5vw, 84px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+
+.brand-icon img {
+  display: block;
+  width: 57px;
+  height: auto;
+}
+
+.brand-name {
+  color: var(--text);
+  font-size: clamp(1.8rem, 2.5vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 34px);
+}
+
+.header-contact {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.header-contact:hover,
+.header-contact:focus-visible {
+  color: #ffffff;
+}
+
+.header-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgba(9, 14, 20, 0.42);
+  font-size: 0.88rem;
+  font-weight: 720;
+  backdrop-filter: blur(14px);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(249, 115, 22, 0.16);
+}
+
+.hero-content {
+  display: flex;
+  width: min(630px, 46vw);
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding:
+    clamp(28px, 4vh, 58px)
+    0
+    clamp(74px, 9vh, 108px)
+    clamp(28px, 7vw, 122px);
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font-size: clamp(0.74rem, 0.9vw, 0.84rem);
+  font-weight: 850;
+  letter-spacing: 0.24em;
+}
+
+h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(3.35rem, 5.3vw, 6.2rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+h1 span {
+  display: block;
+}
+
+.headline-accent {
+  margin-top: 0.08em;
+  color: var(--accent);
+}
+
+.description {
+  max-width: 570px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.22vw, 1.16rem);
+  line-height: 1.68;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  padding: 0 25px;
+  font-size: 0.98rem;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.button-primary {
+  border: 1px solid rgba(255, 151, 73, 0.5);
+  background: var(--accent);
+  color: #17110d;
+  box-shadow: 0 16px 36px rgba(249, 115, 22, 0.24);
+}
+
+.button-primary:disabled {
+  background: var(--accent);
+  color: #17110d;
+  cursor: default;
+  opacity: 1;
+}
+
+.button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(9, 14, 20, 0.28);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.store-badge {
+  display: inline-flex;
+  min-width: 194px;
+  min-height: 62px;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 11px;
+  padding: 9px 15px;
+  background: #050607;
+  color: #ffffff;
+  cursor: default;
+  opacity: 1;
+}
+
+.store-badge:disabled {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.store-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+}
+
+.store-icon-play {
+  width: 31px;
+  height: 31px;
+}
+
+.store-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.store-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.store-title {
+  margin-top: 4px;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.site-footer {
+  position: absolute;
+  right: clamp(20px, 2vw, 34px);
+  bottom: clamp(10px, 1.8vw, 20px);
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: rgba(7, 11, 16, 0.34);
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.76rem;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 1100px) {
+  .hero-content {
+    width: min(600px, 51vw);
+    padding-left: clamp(24px, 6vw, 74px);
+  }
+
+  .brand-icon {
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
+  }
+
+  .brand-icon img {
+    width: 50px;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-photo {
+    top: 0;
+    right: -23%;
+    height: 63%;
+    opacity: 0.98;
+    transform: none;
+
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      #000000 0%,
+      #000000 58%,
+      rgba(0, 0, 0, 0.76) 72%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      180deg,
+      #000000 0%,
+      #000000 58%,
+      rgba(0, 0, 0, 0.76) 72%,
+      transparent 100%
+    );
+  }
+
+  .hero-overlay {
+    background:
+      radial-gradient(
+        circle at 75% 2%,
+        rgba(255, 198, 126, 0.16),
+        transparent 30%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(9, 16, 24, 0.04) 0%,
+        rgba(9, 16, 24, 0.14) 33%,
+        rgba(9, 16, 24, 0.68) 60%,
+        rgba(9, 16, 24, 0.98) 82%,
+        #091018 100%
+      );
+  }
+
+  .hero-content {
+    width: 100%;
+    justify-content: flex-end;
+    padding:
+      clamp(250px, 42vh, 380px)
+      clamp(22px, 7vw, 58px)
+      90px;
+  }
+
+  .site-footer {
+    position: static;
+    align-self: flex-end;
+    margin: 0 18px 18px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 18px 20px;
+  }
+
+  .brand {
+    gap: 11px;
+  }
+
+  .brand-icon {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+    border-radius: 15px;
+  }
+
+  .brand-icon img {
+    width: 42px;
+  }
+
+  .brand-name {
+    font-size: 1.55rem;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  .header-status {
+    padding: 9px 12px;
+    font-size: 0.78rem;
+  }
+
+  .hero-photo {
+    right: -39%;
+    height: 55%;
+  }
+
+  .hero-content {
+    padding:
+      clamp(260px, 43vh, 370px)
+      20px
+      72px;
+  }
+
+  .eyebrow {
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 14vw, 4.45rem);
+  }
+
+  .description {
+    margin-top: 22px;
+    font-size: 1rem;
+  }
+
+  .hero-actions,
+  .store-badges {
+    width: 100%;
+  }
+
+  .button,
+  .store-badge {
+    width: 100%;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 981px) {
+  .site-header {
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+
+  .brand-icon {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  .brand-icon img {
+    width: 46px;
+  }
+
+  .hero-content {
+    padding-top: 12px;
+    padding-bottom: 56px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 7.2vh, 4.8rem);
+  }
+
+  .description {
+    margin-top: 20px;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+  }
+
+  .store-badges {
+    margin-top: 22px;
+  }
+}
+
+/* Final hero balance */
+
+/*
+ * The photo now becomes visible earlier and more gradually.
+ * The text area remains fully readable because the image itself starts
+ * farther to the right than the main content.
+ */
+
+.hero-photo {
+  filter:
+    brightness(1.18)
+    contrast(1.015)
+    saturate(1.04);
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.28) 6%,
+    rgba(0, 0, 0, 0.56) 13%,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.96) 28%,
+    #000000 35%,
+    #000000 100%
+  );
+
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.28) 6%,
+    rgba(0, 0, 0, 0.56) 13%,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.96) 28%,
+    #000000 35%,
+    #000000 100%
+  );
+}
+
+.hero-overlay {
+  background:
+    radial-gradient(
+      circle at 72% 4%,
+      rgba(255, 198, 126, 0.2) 0%,
+      rgba(249, 115, 22, 0.07) 20%,
+      transparent 39%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(9, 16, 24, 0.99) 0%,
+      rgba(9, 16, 24, 0.98) 20%,
+      rgba(9, 16, 24, 0.93) 30%,
+      rgba(9, 16, 24, 0.78) 40%,
+      rgba(9, 16, 24, 0.55) 49%,
+      rgba(9, 16, 24, 0.3) 58%,
+      rgba(9, 16, 24, 0.12) 68%,
+      rgba(9, 16, 24, 0.03) 78%,
+      transparent 89%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(9, 16, 24, 0.03) 0%,
+      transparent 64%,
+      rgba(9, 16, 24, 0.14) 100%
+    );
+}
+
+.description {
+  width: auto;
+  max-width: none;
+  white-space: nowrap;
+  font-size: clamp(1rem, 1.08vw, 1.08rem);
+}
+
+.store-badges {
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.store-badge {
+  min-width: 184px;
+  min-height: 54px;
+  padding: 7px 14px;
+}
+
+.store-icon {
+  width: 27px;
+  height: 27px;
+  flex-basis: 27px;
+}
+
+.store-icon-play {
+  width: 28px;
+  height: 28px;
+}
+
+.store-label {
+  font-size: 0.64rem;
+}
+
+.store-title {
+  margin-top: 3px;
+  font-size: 1.05rem;
+}
+
+.site-footer {
+  right: 20px;
+  bottom: 10px;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: none;
+}
+
+@media (max-width: 1280px) {
+  .description {
+    max-width: 570px;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-photo {
+    filter:
+      brightness(1.14)
+      contrast(1.015)
+      saturate(1.04);
+  }
+
+  .description {
+    max-width: 570px;
+    white-space: normal;
+  }
+
+  .store-badges {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .store-badge {
+    min-height: 56px;
+  }
+
+  .site-footer {
+    margin-right: 20px;
+    margin-bottom: 18px;
+  }
+}
+
+/* Official store artwork */
+
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+}
+
+.official-store-link {
+  display: inline-flex;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.official-store-badge {
+  display: block;
+  width: auto;
+  max-width: none;
+}
+
+.official-store-badge-apple {
+  height: 46px;
+}
+
+.official-store-badge-google {
+  height: 64px;
+  margin: -9px -11px;
+}
+
+.site-footer {
+  right: 24px;
+  bottom: 14px;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.95),
+    0 0 16px rgba(0, 0, 0, 0.85);
+  backdrop-filter: none;
+}
+
+@media (max-width: 640px) {
+  .store-badges {
+    width: auto;
+    margin-top: 30px;
+  }
+
+  .official-store-link {
+    width: auto;
+  }
+
+  .site-footer {
+    margin-right: 20px;
+    margin-bottom: 18px;
+  }
+}
+
+/* Language switch and responsive header */
+
+.language-switch {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 3px;
+  background: rgba(9, 14, 20, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.language-option {
+  display: inline-flex;
+  min-width: 38px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 9px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.language-option:hover,
+.language-option:focus-visible {
+  color: #ffffff;
+}
+
+.language-option.is-active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.language-divider {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .header-actions {
+    gap: 14px;
+  }
+
+  .header-contact {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .language-switch {
+    min-height: 32px;
+  }
+
+  .language-option {
+    min-width: 34px;
+    height: 24px;
+    padding: 0 7px;
+    font-size: 0.7rem;
+  }
+
+  .header-status {
+    padding: 8px 11px;
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .brand-icon img {
+    width: 38px;
+  }
+
+  .brand-name {
+    font-size: 1.38rem;
+  }
+
+  .header-status {
+    display: none;
+  }
+
+  .hero-content {
+    padding-top: clamp(245px, 41vh, 340px);
+  }
+}
+
+/* Refined language placement and Polish copy */
+
+.header-actions {
+  display: grid;
+  grid-template-areas:
+    "contact status"
+    ". language";
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: end;
+  column-gap: clamp(18px, 2.6vw, 34px);
+  row-gap: 8px;
+}
+
+.header-contact {
+  grid-area: contact;
+}
+
+.header-status {
+  grid-area: status;
+  justify-self: end;
+}
+
+.language-switch {
+  grid-area: language;
+  justify-self: center;
+  margin-top: -1px;
+}
+
+html[lang="pl"] .eyebrow {
+  letter-spacing: 0.21em;
+}
+
+html[lang="pl"] h1 {
+  font-size: clamp(3.25rem, 5.1vw, 6rem);
+}
+
+html[lang="pl"] .description {
+  width: auto;
+  max-width: 720px;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+html[lang="pl"] .button-primary {
+  padding-right: 28px;
+  padding-left: 28px;
+}
+
+@media (max-width: 1100px) {
+  .header-actions {
+    grid-template-areas:
+      "status"
+      "language";
+    grid-template-columns: auto;
+    column-gap: 0;
+  }
+
+  .header-contact {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-actions {
+    display: grid;
+    align-items: end;
+    justify-items: end;
+    row-gap: 7px;
+  }
+
+  .language-switch {
+    justify-self: center;
+  }
+
+  html[lang="pl"] h1 {
+    font-size: clamp(2.75rem, 12.7vw, 4.15rem);
+  }
+
+  html[lang="pl"] .description {
+    max-width: 34rem;
+  }
+}
+
+/* Final language dropdown */
+
+.header-actions {
+  display: flex;
+  grid-template-areas: none;
+  grid-template-columns: none;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 0;
+  row-gap: 0;
+  gap: 12px;
+}
+
+.header-contact {
+  order: 1;
+}
+
+.header-status {
+  order: 2;
+}
+
+.language-menu {
+  position: relative;
+  z-index: 20;
+  order: 3;
+}
+
+.language-trigger {
+  display: inline-flex;
+  min-width: 58px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0 13px;
+  background: rgba(9, 14, 20, 0.42);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.language-trigger:hover,
+.language-trigger:focus-visible,
+.language-menu.is-open .language-trigger {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.language-chevron {
+  width: 10px;
+  height: 7px;
+  color: rgba(255, 255, 255, 0.66);
+  transition: transform 160ms ease;
+}
+
+.language-menu.is-open .language-chevron {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  width: 168px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 5px;
+  background: rgba(9, 14, 20, 0.94);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.34),
+    0 4px 14px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.language-dropdown[hidden] {
+  display: none;
+}
+
+.language-choice {
+  display: flex;
+  width: 100%;
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-radius: 10px;
+  padding: 0 12px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.86rem;
+  font-weight: 650;
+  cursor: pointer;
+  text-align: left;
+}
+
+.language-choice:hover,
+.language-choice:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.language-choice.is-active {
+  background: rgba(249, 115, 22, 0.14);
+  color: #ffffff;
+}
+
+.language-choice-code {
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+}
+
+html[lang="pl"] .hero-content {
+  width: min(690px, 48vw);
+}
+
+html[lang="pl"] .eyebrow {
+  letter-spacing: 0.24em;
+}
+
+html[lang="pl"] h1 {
+  font-size: clamp(3.35rem, 5.3vw, 6.2rem);
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+html[lang="pl"] h1 span {
+  white-space: nowrap;
+}
+
+html[lang="pl"] .description {
+  width: auto;
+  max-width: 680px;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+html[lang="pl"] .button-primary {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.official-store-link {
+  flex: 0 0 auto;
+}
+
+.official-store-badge-apple {
+  width: 160px;
+  height: auto;
+  max-height: none;
+}
+
+.official-store-badge-google {
+  width: 174px;
+  height: auto;
+  max-height: none;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .header-actions {
+    display: flex;
+    grid-template-areas: none;
+    grid-template-columns: none;
+    gap: 10px;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  html[lang="pl"] .hero-content {
+    width: min(640px, 54vw);
+  }
+}
+
+@media (max-width: 980px) {
+  .header-actions {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-items: initial;
+  }
+
+  html[lang="pl"] .hero-content {
+    width: 100%;
+  }
+
+  html[lang="pl"] h1 span {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    align-items: center;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 7px;
+  }
+
+  .language-trigger {
+    min-width: 50px;
+    height: 34px;
+    gap: 6px;
+    padding: 0 10px;
+    font-size: 0.7rem;
+  }
+
+  .language-dropdown {
+    top: calc(100% + 7px);
+    width: 154px;
+  }
+
+  html[lang="pl"] h1 {
+    font-size: clamp(3rem, 14vw, 4.45rem);
+  }
+
+  .official-store-badge-apple {
+    width: 154px;
+  }
+
+  .official-store-badge-google {
+    width: 168px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-status {
+    display: none;
+  }
+
+  .language-menu {
+    margin-left: auto;
+  }
+}
+
+/* Final visual parity */
+
+/* Верхние элементы дальше вправо — подальше от шлема. */
+
+.site-header {
+  padding-right: clamp(18px, 2vw, 32px);
+}
+
+.header-actions {
+  gap: 10px;
+}
+
+/* Полная визуальная идентичность EN и PL. */
+
+html[lang="pl"] .hero-content {
+  width: min(630px, 46vw);
+}
+
+html[lang="pl"] h1 {
+  font-size: clamp(3.35rem, 5.3vw, 6.2rem);
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+html[lang="pl"] h1 span {
+  white-space: normal;
+}
+
+html[lang="pl"] .description {
+  width: auto;
+  max-width: 570px;
+  white-space: normal;
+}
+
+/* Одинаковые размеры основных кнопок на обоих языках. */
+
+.button-primary {
+  width: 224px;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+.button-secondary {
+  width: 146px;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+/*
+ * Официальные badges имеют разные пропорции и внутренние поля.
+ * Выравниваем визуальную высоту, не растягивая изображения.
+ */
+
+.store-badges {
+  align-items: center;
+  gap: 14px;
+}
+
+.official-store-link {
+  display: inline-flex;
+  width: 180px;
+  height: 48px;
+  flex: 0 0 180px;
+  align-items: center;
+  justify-content: center;
+}
+
+.official-store-badge-apple {
+  width: auto;
+  height: 46px;
+  max-height: none;
+}
+
+.official-store-badge-google {
+  width: auto;
+  height: 64px;
+  max-height: none;
+  margin: -9px -11px;
+}
+
+@media (max-width: 1100px) {
+  html[lang="pl"] .hero-content {
+    width: min(600px, 51vw);
+  }
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    padding-right: clamp(18px, 4vw, 28px);
+  }
+
+  html[lang="pl"] .hero-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding-right: 20px;
+  }
+
+  html[lang="pl"] h1 {
+    font-size: clamp(3rem, 14vw, 4.45rem);
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+  }
+
+  .official-store-link {
+    width: 170px;
+    height: 46px;
+    flex-basis: 170px;
+  }
+
+  .official-store-badge-apple {
+    height: 44px;
+  }
+
+  .official-store-badge-google {
+    height: 61px;
+    margin: -8px -10px;
+  }
+}
+
+/* Strict EN PL parity */
+
+/*
+ * Один источник размера заголовка для обоих языков.
+ * Это перекрывает старые отдельные правила для польской версии.
+ */
+
+:root {
+  --hero-heading-size: clamp(3.35rem, 5.3vw, 6.2rem);
+}
+
+html[lang="en"] h1,
+html[lang="pl"] h1 {
+  font-size: var(--hero-heading-size) !important;
+  letter-spacing: -0.065em !important;
+  line-height: 0.94 !important;
+}
+
+html[lang="en"] h1 span,
+html[lang="pl"] h1 span {
+  white-space: nowrap;
+}
+
+html[lang="en"] .hero-content,
+html[lang="pl"] .hero-content {
+  width: min(630px, 46vw);
+}
+
+/*
+ * Оба официальных изображения получают одинаковую ширину.
+ * Пропорции сохраняются, поэтому логотипы не искажаются.
+ */
+
+.store-badges {
+  display: grid !important;
+  width: max-content;
+  grid-template-columns: 180px 180px;
+  align-items: center;
+  justify-content: start;
+  gap: 14px !important;
+  margin-left: 0 !important;
+}
+
+.official-store-link {
+  display: flex !important;
+  width: 180px !important;
+  height: 60px !important;
+  flex: none !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.official-store-badge-apple,
+.official-store-badge-google {
+  display: block !important;
+  width: 172px !important;
+  height: auto !important;
+  max-width: 172px !important;
+  max-height: 60px !important;
+  margin: 0 !important;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Невысокий экран: один и тот же уменьшенный размер для EN и PL. */
+
+@media (max-height: 720px) and (min-width: 981px) {
+  :root {
+    --hero-heading-size: clamp(3rem, 7.2vh, 4.8rem);
+  }
+}
+
+@media (max-width: 1100px) {
+  html[lang="en"] .hero-content,
+  html[lang="pl"] .hero-content {
+    width: min(600px, 51vw);
+  }
+}
+
+@media (max-width: 980px) {
+  html[lang="en"] .hero-content,
+  html[lang="pl"] .hero-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --hero-heading-size: clamp(3rem, 14vw, 4.45rem);
+  }
+
+  html[lang="en"] h1 span,
+  html[lang="pl"] h1 span {
+    white-space: normal;
+  }
+
+  .store-badges {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px !important;
+  }
+
+  .official-store-link {
+    width: 100% !important;
+    height: 56px !important;
+  }
+
+  .official-store-badge-apple,
+  .official-store-badge-google {
+    width: 154px !important;
+    max-width: 100% !important;
+    max-height: 56px !important;
+  }
+}
+
+/* Normalize official store artwork */
+
+/*
+ * Google Play PNG содержит внешние прозрачные поля.
+ * Одинаковая ширина файлов не даёт одинакового визуального размера.
+ * Оба badge помещаются в одинаковый слот, а Google масштабируется
+ * внутри него без деформации изображения.
+ */
+
+.store-badges {
+  grid-template-columns: 180px 180px !important;
+  gap: 14px !important;
+}
+
+.official-store-link {
+  display: flex !important;
+  width: 180px !important;
+  height: 60px !important;
+  overflow: hidden;
+  flex: 0 0 180px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.official-store-badge-apple {
+  display: block !important;
+  width: 176px !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: contain;
+}
+
+.official-store-badge-google {
+  display: block !important;
+  width: 222px !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .store-badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .official-store-link {
+    width: 100% !important;
+    height: 56px !important;
+    flex-basis: auto !important;
+  }
+
+  .official-store-badge-apple {
+    width: 164px !important;
+  }
+
+  .official-store-badge-google {
+    width: 207px !important;
+  }
+}
+
+/* Official store badge dimensions */
+
+/*
+ * Apple badge отображается с официальной экранной высотой 40 px.
+ *
+ * Официальные PNG-файлы Google Play содержат прозрачные внешние поля.
+ * Высота файла 60 px даёт примерно такую же видимую высоту чёрного badge,
+ * не обрезая и не деформируя оригинальное изображение.
+ */
+
+.store-badges {
+  display: flex !important;
+  width: auto !important;
+  grid-template-columns: none !important;
+  flex-wrap: wrap;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  margin-left: 0 !important;
+}
+
+.official-store-link {
+  display: inline-flex !important;
+  width: auto !important;
+  height: 60px !important;
+  overflow: visible !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.official-store-badge-apple {
+  display: block !important;
+  width: auto !important;
+  height: 40px !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+}
+
+.official-store-badge-google {
+  display: block !important;
+  width: auto !important;
+  height: 60px !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 640px) {
+  .store-badges {
+    display: flex !important;
+    width: 100% !important;
+    grid-template-columns: none !important;
+    gap: 10px !important;
+  }
+
+  .official-store-link {
+    width: auto !important;
+    height: 60px !important;
+    flex-basis: auto !important;
+  }
+
+  .official-store-badge-apple {
+    height: 40px !important;
+  }
+
+  .official-store-badge-google {
+    height: 60px !important;
+  }
+}
