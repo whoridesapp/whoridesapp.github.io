@@ -31,7 +31,7 @@ const translations = {
     comingSoon: "Już wkrótce",
     eyebrow: "SPOŁECZNOŚĆ MOTOCYKLOWA",
     headlineFirst: "Droga wzywa.",
-    headlineSecond: "Znajdź ekipę.",
+    headlineSecond: "Znajdź swoją ekipę.",
     description:
       "Znajdź motocyklistów w pobliżu, dołącz do spontanicznego wypadu albo zorganizuj własny.",
     joinCommunity: "Dołącz do społeczności",
@@ -60,6 +60,21 @@ const currentLanguageCode = document.querySelector(
   "#current-language-code"
 );
 const languageChoices = document.querySelectorAll("[data-language]");
+
+// Mobile language placement
+const headerActions = document.querySelector(".header-actions");
+const siteFooter = document.querySelector(".site-footer");
+const mobileLanguageMedia = window.matchMedia("(max-width: 640px)");
+
+function placeLanguageMenu() {
+  if (mobileLanguageMedia.matches) {
+    siteFooter.prepend(languageMenu);
+  } else {
+    headerActions.append(languageMenu);
+  }
+
+  setLanguageMenuOpen(false);
+}
 
 function getInitialLanguage() {
   const savedLanguage = localStorage.getItem("whorides-language");
@@ -163,5 +178,13 @@ document.addEventListener("keydown", (event) => {
     languageTrigger.focus();
   }
 });
+
+placeLanguageMenu();
+
+if (typeof mobileLanguageMedia.addEventListener === "function") {
+  mobileLanguageMedia.addEventListener("change", placeLanguageMenu);
+} else {
+  mobileLanguageMedia.addListener(placeLanguageMenu);
+}
 
 applyLanguage(getInitialLanguage());
