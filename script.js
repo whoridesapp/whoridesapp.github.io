@@ -77,6 +77,23 @@ function placeLanguageMenu() {
 }
 
 function getInitialLanguage() {
+  const currentUrl = new URL(window.location.href);
+  const requestedLanguage = currentUrl.searchParams
+    .get("lang")
+    ?.toLowerCase();
+
+  if (supportedLanguages.includes(requestedLanguage)) {
+    currentUrl.searchParams.delete("lang");
+
+    try {
+      window.history.replaceState(null, "", currentUrl.toString());
+    } catch {
+      // Local file previews may not allow History API URL updates.
+    }
+
+    return requestedLanguage;
+  }
+
   const savedLanguage = localStorage.getItem("whorides-language");
 
   if (supportedLanguages.includes(savedLanguage)) {
